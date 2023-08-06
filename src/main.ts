@@ -13,6 +13,7 @@ console.log(window.location.search.slice(PREFIX.length));
 // - language -> 1 byte
 
 // STORE ONLY ENCRYPTEOD
+/*
 const guestList = [
   {
     name: "Konstantin",
@@ -39,7 +40,7 @@ const result = guestList.map((i) => {
     ...[...new Array(22 - payload.length)].map(() => 0),
     ...payload,
   ]);
-});
+});*/
 
 /*
 const translations = {
