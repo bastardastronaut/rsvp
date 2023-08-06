@@ -1,0 +1,392 @@
+@font-face {
+  font-family: "text";
+  src: url("/castorotitling-regular-webfont.woff2") format("woff2"),
+    url("/castorotitling-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root,
+:root.light {
+  --text-primary: #000000;
+  --text-secondary: #444444;
+  --text-background: rgba(255, 255, 255, 0.875);
+
+  --background-primary: #eeeeee;
+  --background-secondary: #fffcf9;
+
+  --semantic-danger: #f6511d;
+  --semantic-success: #42e2b8;
+  --semantic-warning: #f3dfbf;
+  --semantic-disabled: #aaaaaa;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --variant-primary: #f78a8f;
+    --variant-secondary: #4aaaee;
+
+    --text-primary: #000000;
+    --text-secondary: #444444;
+    --text-background: rgba(0, 0, 0, 0.75);
+
+    --background-primary: #112233;
+    --background-secondary: #fffcf9;
+
+    --semantic-danger: #f3dfbf;
+    --semantic-success: #42e2b8;
+    --semantic-warning: #f3dfbf;
+    --semantic-disabled: #aaaaaa;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(-64px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lift {
+  0% {
+    box-shadow: 0px 0px 96px rgb(111, 99, 123);
+  }
+  100% {
+    box-shadow: 0px 0px 32px rgb(111, 99, 123);
+  }
+}
+
+html {
+  font-family: "text";
+  letter-spacing: 0.15rem;
+}
+
+html,
+body,
+#app {
+  background: var(--background-primary);
+  color: var(--text-secondary);
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  animation: appear 1s both ease-out;
+}
+
+#app > .front {
+  margin: auto;
+  perspective: 2400px;
+  width: 90vw;
+  max-width: 24rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  margin-top: 13.5rem;
+  top: -10.5rem;
+  background-color: var(--background-secondary);
+}
+
+#app .front img.header {
+  width: 8rem;
+  margin: 1rem 0 2rem;
+}
+#app .front img.main {
+  width: 100%;
+  object-fit: contain;
+  object-position: top;
+  max-height: 20rem;
+  box-shadow: 0px 0px 48px rgb(111, 99, 123);
+}
+
+#app .front .main.full:first-child {
+  display: none;
+}
+
+#app .front .main:not(.full):last-child::before {
+  position: absolute;
+  content: " ";
+  top: -36px;
+  right: 0;
+  left: 0;
+  background-color: var(--background-secondary);
+  height: 36px;
+}
+
+#app .front .main:last-child {
+  box-shadow: 0px 0px 32px rgb(111, 99, 123);
+  width: 100%;
+  /* height to be dynamic */
+  position: absolute;
+  top: 100%;
+  transform-style: preserve-3d;
+  transform-origin: center top;
+  transform: rotateX(180deg);
+  transition: transform 2.5s;
+}
+
+#app .front .main.full:last-child {
+  background-color: var(--background-secondary);
+  transition: none;
+  top: 0;
+}
+#app .front .main:last-child footer {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#app .front .main.full:last-child > div {
+  text-align: justify;
+  font-family: auto;
+  letter-spacing: 0;
+  padding: 1rem 1rem 3rem;
+}
+#app .front .main.full:last-child > div summary {
+}
+
+#app > .front .main:last-child .front {
+  transform: rotateX(180deg) translateZ(0.5px);
+}
+
+#app > .front .main.full:last-child .front {
+  display: none;
+}
+
+#app > .front .main:not(.full):last-child .front,
+#app > .front .main:not(.full):last-child .back {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: var(--background-secondary);
+}
+
+#app > .front .main:last-child .back {
+  background-position: center top;
+  backface-visibility: hidden;
+}
+
+#app > .front .main:last-child .front {
+  background-image: url("/front.svg");
+  background-size: 66%;
+  background-position: right top;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  padding-left: 10%;
+}
+
+.main .front button {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 0;
+  z-index: 3;
+}
+
+button.back {
+  letter-spacing: 1px;
+}
+button.rsvp {
+  letter-spacing: 4px;
+}
+button.submit {
+  opacity: 0;
+  transition: opacity 0.5s;
+  letter-spacing: 1px;
+}
+button.rsvp::after {
+  content: " ";
+  position: absolute;
+  bottom: -0.125rem;
+  height: 2px;
+  right: 0;
+  left: 0;
+  background: var(--text-primary);
+  opacity: 1;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+button.rsvp:hover::after {
+  transform: scaleX(0);
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: "text";
+  position: relative;
+  color: var(--text-primary);
+}
+
+details[open] summary ~ * {
+  animation: open 0.3s ease-in-out;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary {
+  width: 100%;
+  padding: 0.5rem 0;
+  border-top: 1px solid black;
+
+  position: relative;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 300;
+  list-style: none;
+}
+
+details summary:after {
+  content: "+";
+  color: black;
+  position: absolute;
+  font-size: 1.75rem;
+  line-height: 0;
+  margin-top: 0.75rem;
+  right: 0;
+  font-weight: 200;
+  transform-origin: center;
+  transition: 200ms linear;
+}
+details[open] summary:after {
+  transform: rotate(45deg);
+  font-size: 2rem;
+}
+details summary {
+  outline: 0;
+}
+details p {
+  font-size: 0.875rem;
+  margin: 0 0 1rem;
+}
+
+details h3 {
+  font-size: 1rem;
+  text-align: center;
+  background: url("/banner.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 6rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rsvp-form fieldset.hidden {
+  opacity: 0;
+}
+
+.rsvp-form label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.rsvp-form label.inline {
+  flex-direction: row;
+}
+.rsvp-form label.inline input {
+  margin-left: 0.5rem;
+  width: 2rem;
+}
+.rsvp-form fieldset label:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+.rsvp-form fieldset {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  opacity: 1;
+  transition: opacity 0.25s;
+}
+.rsvp-form input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--text-primary);
+  outline: none;
+  padding: 0;
+  text-align: center;
+  display: block;
+  margin-top: 0.75rem;
+}
+
+.rsvp-form .form-control {
+  line-height: 1.1;
+  flex-direction: row;
+  width: auto;
+}
+.rsvp-form .form-control span {
+  padding-left: 0.5rem;
+}
+
+.form-control:focus-within {
+  color: var(--form-control-color);
+}
+
+input[type="radio"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(--form-background);
+  /* Not removed via appearance */
+  margin: 0;
+
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 0.25s transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  background-color: CanvasText;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="radio"]:focus {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+}
