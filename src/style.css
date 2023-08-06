@@ -6,6 +6,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "address";
+  src: url("/marckscript-regular-webfont.woff2") format("woff2"),
+    url("/marckscript-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root,
 :root.light {
   --text-primary: #000000;
@@ -94,8 +102,9 @@ body,
 
 #app .front img.header {
   width: 8rem;
-  margin: 1rem 0 2rem;
+  margin-top: 1rem;
 }
+
 #app .front img.main {
   width: 100%;
   object-fit: contain;
@@ -155,6 +164,8 @@ body,
 
 #app > .front .main:last-child .front {
   transform: rotateX(180deg) translateZ(0.5px);
+  font-family: 'address';
+  font-size: 1.25rem;
 }
 
 #app > .front .main.full:last-child .front {
@@ -169,7 +180,7 @@ body,
   bottom: 0;
   top: 0;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 85%;
   background-color: var(--background-secondary);
 }
 
@@ -178,7 +189,7 @@ body,
   backface-visibility: hidden;
 }
 
-#app > .front .main:last-child .front {
+#app > .front .main:not(.full):last-child .front {
   background-image: url("/front.svg");
   background-size: 66%;
   background-position: right top;
@@ -291,8 +302,8 @@ details h3 {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: 6rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .rsvp-form {
@@ -304,6 +315,17 @@ details h3 {
 
 .rsvp-form fieldset.hidden {
   opacity: 0;
+}
+
+.rsvp-form fieldset:not(:first-of-type) {
+  outline: none;
+  border: none;
+  padding-top: 2rem;
+  background: url("/banner.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 12rem;
 }
 
 .rsvp-form label {
@@ -389,4 +411,66 @@ input[type="radio"]:checked::before {
 input[type="radio"]:focus {
   outline: max(2px, 0.15em) solid currentColor;
   outline-offset: max(2px, 0.15em);
+}
+
+.finish-header {
+  width: 80%;
+  margin: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+ol, ul {
+  padding-left: 1rem;
+  font-size: 0.875rem;
+} 
+li {
+  margin: 0.5rem;
+}
+
+.timeline  li { 
+  text-align: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+  list-style: none;
+}
+
+.timeline li::before {
+  position: absolute;
+  left: -1.5rem;
+  top: 0;
+  bottom: 0;
+}
+.timeline li:nth-of-type(1)::before {
+  content: '15:00';
+}
+.timeline li:nth-of-type(2)::before {
+  content: '16:00';
+}
+.timeline li:nth-of-type(3)::before {
+  content: '17:00';
+}
+.timeline li:nth-of-type(4)::before {
+  content: '20:00';
+}
+
+.form-control-inline > div {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;;
+}
+.form-control-inline > div > label {
+  width: 6rem;
+  display: flex;
+  flex-direction: row;
+}
+.form-control-inline > div > label > span {
+  padding-left: 0.5rem;
+}
+
+.front h1 {
+  margin-top: 5rem;
+  margin-bottom: 0;
 }
