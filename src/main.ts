@@ -41,8 +41,7 @@ const result = guestList.map((i) => {
   ]);
 });
 
-console.log(result);
-
+/*
 const translations = {
   requestTitle: {
     en: "REQUEST THE PLEASURE OF YOUR COMPANY AT THEIR WEDDING",
@@ -53,7 +52,7 @@ const translations = {
   date: {
     en: "Thursday, October 26th",
   },
-};
+};*/
 
 const content = {
   index: {
@@ -187,7 +186,7 @@ const router = (hash: keyof Routes) => {
   if (cleanup) cleanup();
   if (!Object.keys(routes).includes(hash)) return;
   document.location.hash = hash;
-  cleanup = routes[hash]();
+  routes[hash]();
 };
 
 const renderDoneContent = () => {
@@ -260,7 +259,7 @@ const renderRSVPContent = () => {
   const fieldset = document.getElementById("fields");
   const radioButtons = document.getElementsByName("rsvp");
   const form = document.getElementById("rsvp-form") as HTMLFormElement;
-  fetch(`http://localhost:8081/api/invitations/test`)
+  fetch(`https://paintit.onrender.com/api/invitations/test`)
     .then((res) => (res.status === 200 ? res.json() : Promise.resolve(null)))
     .then((result: any) => {
       if (!result) return;
@@ -292,7 +291,7 @@ const renderRSVPContent = () => {
     (event: Event) => {
       event.preventDefault();
 
-      fetch(`http://localhost:8081/api/invitations/test`, {
+      fetch(`https://paintit.onrender.com/api/invitations/test`, {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
