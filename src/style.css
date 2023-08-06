@@ -83,6 +83,7 @@ body,
 }
 
 #app {
+  min-height: 560px;
   animation: appear 1s both ease-out;
 }
 

@@ -12,7 +12,7 @@ export const routes: Routes = {} as Routes;
 
 let cleanup: null | (() => void) = null;
 const router = (hash: keyof Routes) => {
-  if (cleanup) cleanup();console.log(routes)
+  if (cleanup) cleanup();
   if (!Object.keys(routes).includes(hash)) return;
   document.location.hash = hash;
   routes[hash]();

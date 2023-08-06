@@ -4,13 +4,25 @@ import { route } from "./router";
 export type SupportedLanguages = "en" | "ru" | "hu";
 
 const PREFIX = "?key=";
-export const invitationId = window.location.search.slice(PREFIX.length)
-const invitationResponse = await fetch(`https://paintit.onrender.com/api/verify-invitation/${invitationId}`) 
-if (invitationResponse.status !== 200) throw new Error('invalid invitation link');
-const person = await invitationResponse.json() as {
+export const invitationId = window.location.search.slice(PREFIX.length);
+const invitationResponse = await fetch(
+  `https://paintit.onrender.com/api/verify-invitation/${invitationId}`
+);
+if (invitationResponse.status !== 200)
+  throw new Error("invalid invitation link");
+const person = (await invitationResponse.json()) as {
   address: string;
   language: SupportedLanguages;
+  name: string;
 };
+
+const address =
+  person.name.split(" ").length > 1
+    ? `${person.address.split(" ")[0]} <br /> ${person.address
+        .split(" ")
+        .slice(1)
+        .join(" ")}`
+    : person.address;
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <section class="front" id="content">
@@ -18,7 +30,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       <div class="main" id="main-offset">
         <div class="front">
         <h1>
-        ${person.address}
+        ${address}
         </h1>
           <button class="rsvp" id="open">${
             translations.open[person.language]
@@ -48,7 +60,14 @@ export const openEnvelope = () => {
 };
 
 let referenceHeight = 0;
+let previousDimensions = [0, 0];
 const onResize = () => {
+  if (
+    window.innerWidth === previousDimensions[0] &&
+    Math.abs(window.innerHeight - previousDimensions[1]) < 100
+  )
+    return;
+  previousDimensions = [window.innerWidth, window.innerHeight];
   referenceHeight = mainImage.getBoundingClientRect().width * 1.05;
   referenceHeight = referenceHeight > 320 ? 320 : referenceHeight;
   mainImage.style.height = `${referenceHeight}px`;

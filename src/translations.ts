@@ -29,7 +29,7 @@ export default {
     papillonOption: {
       en: 'Staying at Papillon',
       hu: 'Papillon szállodában szeretnék foglalni',
-      ru: 'staying at Pappilon',
+      ru: 'Вы остановитесь в Papillon Belvil?',
     },
     acceptOption: {
       en: "Would be delighted to attend",
@@ -288,11 +288,11 @@ So please, no gifts. </p>
   yes: {
     en: 'yes',
     hu: 'igen',
-    ru: 'yes',
+    ru: 'Да',
   },
   no: {
     en: 'no',
     hu: 'nem',
-    ru: 'no',
+    ru: 'Нет',
   },
 };

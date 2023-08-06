@@ -27,7 +27,7 @@ export default () => {
         ? `<img class="finish-header" src="${finish}" alt="rsvp" /><p>${translations.done.seeYouSoon[language]}</p><p>${translations.done.reachOut[language]}</p>`
         : ""
     }
-    ${invitationId === 'd72c53bb42f27880ea5c378029e6b6d86f87be50e5a9d47d17aac8df348e7ebe' ? `<p>ya bastart astronaut</p>` : ''}
+    ${invitationId === 'd72c53bb42f27880ea5c378029e6b6d86f87be50e5a9d47d17aac8df348e7ebe' ? `<p>ya bastard astronaut</p>` : ''}
 
     </section>
     `;
