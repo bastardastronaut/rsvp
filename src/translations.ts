@@ -98,10 +98,10 @@ export default {
       </details>
       <details>
       <summary>Ajándékok</summary>
-      <p>Számunkra a legnagyobb élmény a jelenlétetek. Csak arra kérünk, hogy gyertek :)</p>
+      <p>Számunkra a legnagyobb érték a jelenlétetek. Csak arra kérünk, hogy gyertek :)</p>
       </details>
       <details>
-      <summary>Mit kell tudni az útról</summary>
+      <summary>Mit kell tudni az útról?</summary>
     <ul>
 <li>A reptéri transzfer benne lesz a foglalásban, vagy mi biztosítjuk.</li>
 <li>Nem szükséges vízum.</li>
@@ -221,7 +221,7 @@ We have 2 options of activities, you can choose the one for you:
 <li>welcome drinks </li>
 <li>ceremony begins</li>
 <li>dinner at the 'DOLCE VITA' restaurant</li>
-<li>the end of the party </li>
+<li>after dinner party</li>
 </ol>
 
 <h3>29th of October <br /> checkout day</h3>

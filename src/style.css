@@ -83,7 +83,7 @@ body,
 }
 
 #app {
-  min-height: 560px;
+  margin-top: 5vh;
   animation: appear 1s both ease-out;
 }
 
@@ -96,8 +96,6 @@ body,
   flex-direction: column;
   text-align: center;
   position: relative;
-  margin-top: 13.5rem;
-  top: -10.5rem;
   background-color: var(--background-secondary);
 }
 
@@ -107,10 +105,10 @@ body,
 }
 
 #app .front img.main {
+  max-height: 20rem;
   width: 100%;
   object-fit: contain;
   object-position: top;
-  max-height: 20rem;
   box-shadow: 0px 0px 48px rgb(111, 99, 123);
 }
 
@@ -121,15 +119,15 @@ body,
 #app .front .main:not(.full):last-child::before {
   position: absolute;
   content: " ";
-  top: -36px;
+  top: -24px;
   right: 0;
   left: 0;
   background-color: var(--background-secondary);
-  height: 36px;
+  height: 24px;
 }
 
 #app .front .main:last-child {
-  box-shadow: 0px 0px 32px rgb(111, 99, 123);
+  box-shadow: 0px 0px 24px rgb(111, 99, 123);
   width: 100%;
   /* height to be dynamic */
   position: absolute;
@@ -146,7 +144,7 @@ body,
   top: 0;
 }
 #app .front .main:last-child footer {
-  position: fixed;
+  position: absolute;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -181,7 +179,7 @@ body,
   bottom: 0;
   top: 0;
   background-repeat: no-repeat;
-  background-size: 85%;
+  background-size: 82.5%;
   background-color: var(--background-secondary);
 }
 
@@ -291,7 +289,6 @@ details summary {
   outline: 0;
 }
 details p {
-  font-size: 0.875rem;
   margin: 0 0 1rem;
 }
 
@@ -351,6 +348,8 @@ details h3 {
   transition: opacity 0.25s;
 }
 .rsvp-form input {
+  border-radius: none;
+  outline: none;
   background: none;
   border: none;
   border-bottom: 1px solid var(--text-primary);
@@ -425,7 +424,6 @@ input[type="radio"]:focus {
 
 ol, ul {
   padding-left: 1rem;
-  font-size: 0.875rem;
 } 
 li {
   margin: 0.5rem;
@@ -436,6 +434,7 @@ li {
   margin-bottom: 0.5rem;
   position: relative;
   list-style: none;
+  padding: 0 2rem;
 }
 
 .timeline li::before {
@@ -472,6 +471,12 @@ li {
 }
 
 .front h1 {
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-bottom: 0;
+}
+
+@media screen and (min-height: 480px) {
+  #app .front img.main {
+    max-height: min(45vh, 20rem);
+  }
 }

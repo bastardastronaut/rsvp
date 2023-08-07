@@ -1,9 +1,9 @@
 import {
+  mainImage,
   lowerHalf,
   getLanguage,
   lowerContent,
   openEnvelope,
-  getReferenceHeight,
 } from "./global";
 import { route } from "./router";
 import translations from "./translations";
@@ -14,7 +14,12 @@ export default () => {
   lowerContent.classList.remove("main-page");
   lowerContent.classList.add("index-page");
   lowerContent.parentElement!.classList.add("full");
-  lowerHalf.style.minHeight = `${2 * getReferenceHeight()}px`;
+
+  lowerHalf.style.height = `80vh`;
+  lowerContent.style.maxHeight = `calc(80vh - 7rem)`;
+  lowerContent.style.overflowY = `scroll`;
+  mainImage.style.display = `none`;
+
   lowerContent.style.backgroundImage = "none";
   const language = getLanguage();
   lowerContent.innerHTML = `

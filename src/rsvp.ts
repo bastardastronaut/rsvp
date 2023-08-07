@@ -3,7 +3,7 @@ import {
   getLanguage,
   lowerContent,
   openEnvelope,
-  getReferenceHeight,
+  mainImage,
   setResponse,
   invitationId,
 } from "./global";
@@ -18,7 +18,10 @@ export default () => {
   lowerContent.classList.remove("main-page");
   lowerContent.classList.add("rsvp-page");
   lowerContent.parentElement!.classList.add("full");
-  lowerHalf.style.minHeight = `${2 * getReferenceHeight()}px`;
+  lowerHalf.style.height = `80vh`;
+  lowerContent.style.maxHeight = `calc(80vh - 7rem)`;
+  lowerContent.style.overflowY = `scroll`;
+  mainImage.style.display = `none`;
   lowerContent.style.backgroundImage = "none";
   lowerContent.innerHTML = `
   <form id="rsvp-form" class="rsvp-form">

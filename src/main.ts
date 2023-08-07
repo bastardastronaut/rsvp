@@ -8,6 +8,7 @@ import {
   openEnvelope,
   getReferenceHeight,
   getLanguage,
+  onResize,
 } from "./global";
 import { route } from "./router";
 
@@ -18,7 +19,10 @@ export default () => {
   lowerContent.classList.remove("index-page");
   lowerContent.classList.add("main-page");
   lowerContent.parentElement!.classList.remove("full");
-  lowerHalf.style.minHeight = `${getReferenceHeight()}px`;
+  lowerHalf.style.height = `${getReferenceHeight()}px`;
+  lowerContent.style.maxHeight = `inherit`;
+  mainImage.style.display = `block`;
+  onResize();
 
   lowerContent.innerHTML = `
   <footer>

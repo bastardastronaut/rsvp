@@ -57,21 +57,30 @@ export const lowerContent = document.getElementById(
 export const openEnvelope = () => {
   lowerHalf.style.transform = `rotateX(0deg)`;
   openButton.style.opacity = "0";
+
+  setTimeout(() => {
+    lowerHalf.style.position = "relative";
+  }, 2500);
 };
 
 let referenceHeight = 0;
 let previousDimensions = [0, 0];
-const onResize = () => {
+export const onResize = () => {
   if (
     window.innerWidth === previousDimensions[0] &&
     Math.abs(window.innerHeight - previousDimensions[1]) < 100
   )
     return;
-  previousDimensions = [window.innerWidth, window.innerHeight];
+
+  let maxHeight = window.innerHeight > 480 ? window.innerHeight * 0.46 : 320;
+  maxHeight = maxHeight > 320 ? 320 : maxHeight;
   referenceHeight = mainImage.getBoundingClientRect().width * 1.05;
-  referenceHeight = referenceHeight > 320 ? 320 : referenceHeight;
-  mainImage.style.height = `${referenceHeight}px`;
-  lowerHalf.style.minHeight = `${referenceHeight}px`;
+  referenceHeight = referenceHeight > maxHeight ? maxHeight : referenceHeight;
+  if (referenceHeight > 0) {
+    previousDimensions = [window.innerWidth, window.innerHeight];
+    mainImage.style.height = `${referenceHeight}px`;
+    lowerHalf.style.minHeight = `${referenceHeight}px`;
+  }
 };
 
 export const getReferenceHeight = () => referenceHeight;
