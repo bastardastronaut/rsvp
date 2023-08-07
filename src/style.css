@@ -422,6 +422,10 @@ input[type="radio"]:focus {
   text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
 ol, ul {
   padding-left: 1rem;
 } 

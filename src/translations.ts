@@ -8,28 +8,35 @@ export default {
   },
   done: {
     thankYou: {
-      en: 'Thank you for your response!',
-      ru: 'Спасибо за ваш ответ!',
-      hu: 'Köszönjük a visszajelzést!',
+      en: "Thank you for your response!",
+      ru: "Спасибо за ваш ответ!",
+      hu: "Köszönjük a visszajelzést!",
     },
 
     seeYouSoon: {
-      en: 'We can\'t wait to see you all there soon!',
-      ru: 'С нетерпением ждём встречи!',
-      hu: 'Hamarosan találkozunk!',
+      en: "We can't wait to see you all there soon!",
+      ru: "С нетерпением ждём встречи!",
+      hu: "Hamarosan találkozunk!",
     },
 
     reachOut: {
-      en: 'Please feel free to reach out to us with any questions you may have.',
-      ru: 'Если у вас будут какие-то вопросы, пожалуйста, пишите нам.',
-      hu: 'Ha a szervezéssel kapcsolatban kérdés merülne fel, bármikor szívessen rendelkezésre állunk.',
+      en: `<p class="text-left">Please feel free to reach out to us with any questions you may have.</p><p class="text-left">If you need to contact the organizers:</p><ul class="text-left">
+        <li><a href="tel:+79163597493">+79163597493</a> - Ilia</li>
+        <li><a href="tel:+79250055474">+79250055474</a> - Anastasia</li>
+      </ul>`,
+      ru: `<p class="text-left">Если у вас будут какие-то вопросы, пожалуйста, пишите нам.</p><p class="text-left">Если вам необходимо связаться с организаторами свадьбы:</p>
+      <ul class="text-left">
+        <li><a href="tel:+79163597493">+79163597493</a> - Илья</li>
+        <li><a href="tel:+79250055474">+79250055474</a> - Анастасия</li>
+      <ul>`,
+      hu: "Ha a szervezéssel kapcsolatban kérdés merülne fel, bármikor szívessen rendelkezésre állunk.",
     },
   },
   rsvp: {
     papillonOption: {
-      en: 'Staying at Papillon',
-      hu: 'Papillon szállodában szeretnék foglalni',
-      ru: 'Вы остановитесь в Papillon Belvil?',
+      en: "Staying at Papillon",
+      hu: "Papillon szállodában szeretnék foglalni",
+      ru: "Вы остановитесь в Papillon Belvil?",
     },
     acceptOption: {
       en: "Would be delighted to attend",
@@ -286,13 +293,13 @@ So please, no gifts. </p>
     hu: "KINYIT",
   },
   yes: {
-    en: 'yes',
-    hu: 'igen',
-    ru: 'Да',
+    en: "yes",
+    hu: "igen",
+    ru: "Да",
   },
   no: {
-    en: 'no',
-    hu: 'nem',
-    ru: 'Нет',
+    en: "no",
+    hu: "nem",
+    ru: "Нет",
   },
 };
