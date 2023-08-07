@@ -18,8 +18,8 @@ export default () => {
   lowerContent.classList.remove("main-page");
   lowerContent.classList.add("rsvp-page");
   lowerContent.parentElement!.classList.add("full");
-  lowerHalf.style.height = `80vh`;
-  lowerContent.style.maxHeight = `calc(80vh - 7rem)`;
+  lowerHalf.style.height = `85vh`;
+  lowerContent.style.maxHeight = `calc(85vh - 7rem)`;
   lowerContent.style.overflowY = `scroll`;
   mainImage.style.display = `none`;
   lowerContent.style.backgroundImage = "none";
@@ -59,10 +59,10 @@ export default () => {
         </div>
       </div>
     </fieldset>
-  <button class="rsvp submit" id="rsvp">${translations.submit[language]}</button>
   </form>
   <footer tabindex="0">
   <button class="back" id="back">${translations.back[language]}</button>
+  <button class="rsvp submit" type="submit" form="rsvp-form" id="rsvp">${translations.submit[language]}</button>
   </footer>
   `;
 
