@@ -80,7 +80,7 @@ export default () => {
       form.comment.value = result.comments;
       form.mealPreferences.value = result.meal_preferences;
       form.attendees.value = result.attendees;
-      form.rsvp.value = result.rsvp === "true" ? "accept" : "decline";
+      form.rsvp.value = result.rsvp == 1 ? "accept" : "decline";
       submitButton!.style.opacity = "1";
       if (form.rsvp.value === "accept") {
         setResponse(true);
