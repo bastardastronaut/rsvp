@@ -59,7 +59,7 @@ export default {
       hu: "allergiák vagy hasonló tudnivalók",
     },
     deadline: {
-      en: "Please respond by the 15th of August.",
+      en: "Please respond by the 17th of August.",
       hu: "Kérünk jelezz vissza Augusztus 15-ig.",
       ru: "Пожалуйста, заполните до 15 августа",
     },
